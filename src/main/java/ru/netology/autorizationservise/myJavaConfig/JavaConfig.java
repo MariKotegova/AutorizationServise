@@ -8,11 +8,12 @@ import ru.netology.autorizationservise.service.AuthorizationService;
 @Configuration
 public class JavaConfig {
     @Bean
-    public AuthorizationService authorizationService(UserRepository userRepository){
+    public AuthorizationService authorizationService(UserRepository userRepository) {
         return new AuthorizationService(userRepository);
     }
+
     @Bean
-    public UserRepository userRepository(){
+    public UserRepository userRepository() {
         return new UserRepository();
     }
 }

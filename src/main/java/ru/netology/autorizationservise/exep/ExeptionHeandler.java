@@ -7,17 +7,14 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice()
 public class ExeptionHeandler {
-    //должен возвращать сообшение из класса сервис, ПРОВЕРИТЬ
     @ExceptionHandler(InvalidCredentials.class)
-    public ResponseEntity<String> ieaHangler(InvalidCredentials e){
-        return  new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
-
+    public ResponseEntity<String> ieaHangler(InvalidCredentials e) {
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(UnauthorizedUser.class)
-    public ResponseEntity<String> reHangler(UnauthorizedUser r){
+    public ResponseEntity<String> reHangler(UnauthorizedUser r) {
         System.out.println(r.getMessage());
-        return  new ResponseEntity<>(r.getMessage(), HttpStatus.UNAUTHORIZED);
+        return new ResponseEntity<>(r.getMessage(), HttpStatus.UNAUTHORIZED);
     }
-
 }

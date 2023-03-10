@@ -9,16 +9,15 @@ import ru.netology.autorizationservise.service.AuthorizationService;
 import java.util.List;
 
 @RestController
-
 public class AuthorizationController {
     AuthorizationService service;
 
-    @GetMapping("/authorize")
-//   public String w(@RequestParam("name") String name){
-//       return service.gg(name);
-//   }
+    public AuthorizationController(AuthorizationService service) {
+        this.service = service;
+    }
 
-    public List<Authorities> getAuthorities(@RequestParam("name") String name, @RequestParam("password") String password) { // @UserAnn User user
+    @GetMapping("/authorize")
+    public List<Authorities> getAuthorities(@RequestParam("name") String name, @RequestParam("password") String password) {
         return service.getAuthorities(name, password);
     }
 }

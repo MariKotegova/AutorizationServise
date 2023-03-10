@@ -8,7 +8,5 @@ public class AutorizationServiseApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(AutorizationServiseApplication.class, args);
-
-        }
-
+    }
 }
