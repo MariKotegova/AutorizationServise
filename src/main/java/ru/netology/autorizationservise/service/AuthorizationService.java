@@ -1,5 +1,6 @@
 package ru.netology.autorizationservise.service;
 
+import org.springframework.stereotype.Service;
 import ru.netology.autorizationservise.Authorities;
 import ru.netology.autorizationservise.exep.InvalidCredentials;
 import ru.netology.autorizationservise.exep.UnauthorizedUser;
@@ -7,6 +8,7 @@ import ru.netology.autorizationservise.repository.UserRepository;
 
 import java.util.List;
 
+@Service
 public class AuthorizationService {
     UserRepository userRepository;
 

@@ -2,7 +2,9 @@ package ru.netology.autorizationservise.domain;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import ru.netology.autorizationservise.Authorities;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Person {
@@ -12,6 +14,16 @@ public class Person {
     @NotBlank
     @Size(min = 3, max = 10)
     private String password;
+
+    private List<Authorities> listPreson;
+
+    public void setListPreson(List<Authorities> listPreson) {
+        this.listPreson = listPreson;
+    }
+
+    public List<Authorities> getListPreson() {
+        return listPreson;
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -36,9 +48,10 @@ public class Person {
         return name;
     }
 
-    public Person(String name, String password) {
+    public Person(String name, String password, List<Authorities> listPreson) {
         this.name = name;
         this.password = password;
+        this.listPreson = listPreson;
     }
 
     public String getPassword() {

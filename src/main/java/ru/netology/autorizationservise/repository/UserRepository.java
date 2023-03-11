@@ -1,30 +1,31 @@
 package ru.netology.autorizationservise.repository;
 
+import org.springframework.stereotype.Repository;
 import ru.netology.autorizationservise.Authorities;
+import ru.netology.autorizationservise.domain.Person;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
+@Repository
 public class UserRepository {
-    Map<String, String> repository;
+    List<Person> repository;
 
     public UserRepository() {
-        repository = new ConcurrentHashMap<>();
-        repository.put("Ivan", "111");
-        repository.put("Katya", "222");
+        repository = new ArrayList<>();
+        repository.add(new Person("Ivan", "111", Arrays.asList(Authorities.READ, Authorities.WRITE, Authorities.DELETE)));
+        repository.add(new Person("Katya", "222", Arrays.asList(Authorities.READ, Authorities.WRITE)));
+        repository.add(new Person("Oleg", "333", Arrays.asList(Authorities.READ)));
     }
 
     // реализовать
     public List<Authorities> getUserAuthorities(String user, String password) {
-        List<Authorities> list = new ArrayList<>();
-
-        if (repository.containsKey(user) && repository.get(user).equals(password)) {
-            list = Arrays.asList(Authorities.READ, Authorities.WRITE, Authorities.DELETE);
-            return list;
+        for (Person p : repository) {
+            if (p.getName().equals(user) && p.getPassword().equals(password)) {
+                return p.getListPreson();
+            }
         }
-        return list;
+        return null;
     }
 }
