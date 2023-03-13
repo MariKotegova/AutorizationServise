@@ -23,9 +23,9 @@ public class UserRepository {
     public List<Authorities> getUserAuthorities(String user, String password) {
         for (Person p : repository) {
             if (p.getName().equals(user) && p.getPassword().equals(password)) {
-                return p.getListPreson();
+                return p.getListAuthorities();
             }
         }
-        return null;
+        return new ArrayList<>();
     }
 }

@@ -15,14 +15,14 @@ public class Person {
     @Size(min = 3, max = 10)
     private String password;
 
-    private List<Authorities> listPreson;
+    private List<Authorities> listAuthorities;
 
-    public void setListPreson(List<Authorities> listPreson) {
-        this.listPreson = listPreson;
+    public void setListPreson(List<Authorities> listAuthorities) {
+        this.listAuthorities = listAuthorities;
     }
 
-    public List<Authorities> getListPreson() {
-        return listPreson;
+    public List<Authorities> getListAuthorities() {
+        return listAuthorities;
     }
 
     public void setName(String name) {
@@ -48,10 +48,10 @@ public class Person {
         return name;
     }
 
-    public Person(String name, String password, List<Authorities> listPreson) {
+    public Person(String name, String password, List<Authorities> listAuthorities) {
         this.name = name;
         this.password = password;
-        this.listPreson = listPreson;
+        this.listAuthorities = listAuthorities;
     }
 
     public String getPassword() {
